@@ -5,7 +5,6 @@ import laba2.Task2.*;
 import java.time.LocalDate;
 
 public class AddDate extends MainMetods{
-
     public AddDate(University university) {
         super(university);
     }

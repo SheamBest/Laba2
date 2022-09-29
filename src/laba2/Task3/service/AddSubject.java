@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 public class AddSubject extends MainMetods{
-    protected University university;
-
     public AddSubject(University university) {
         super(university);
     }

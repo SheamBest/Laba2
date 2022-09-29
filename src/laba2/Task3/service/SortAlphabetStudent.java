@@ -6,8 +6,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class SortAlphabetStudent extends MainMetods{
-    protected University university;
-
     public SortAlphabetStudent(University university) {
         super(university);
     }

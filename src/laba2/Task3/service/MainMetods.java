@@ -14,10 +14,12 @@ public class MainMetods {
         return null;
     }
 
-    public Student getStudentByName(final String studentName, final String groupName) {
-        for (final Student student : getGroupByName(groupName).getStudents()) {
-            if (student.getName().equals(studentName)) {
-                return student;
+    public Student getStudentByName(final String studentName) {
+        for (final Group group : university.getGroups()) {
+            for (final Student student : group.getStudents()) {
+                if (student.getName().equals(studentName)) {
+                    return student;
+                }
             }
         }
         return null;
