@@ -5,7 +5,15 @@ import java.util.Objects;
 public class Student {
     private String name;
     private String speciality;
-    private String group;
+    private Group group;
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 
     public String getName() {
         return name;
@@ -23,35 +31,37 @@ public class Student {
         this.speciality = speciality;
     }
 
-    public String getGroup() {
-        return group;
-    }
-
-    public void setGroup(final String group) {
-        this.group = group;
-    }
-
-    public Student(final String name, final String speciality, final String group) {
+    public Student(final String name, final String speciality, final Group group) {
         this.name = name;
         this.speciality = speciality;
         this.group = group;
     }
 
     @Override
-    public boolean equals(final Object o) {
+    public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        final Student student = (Student) o;
-        return Objects.equals(name, student.name) && Objects.equals(speciality, student.speciality) && Objects.equals(group, student.group);
+        if (!(o instanceof Student student)) return false;
+
+        if (getName() != null ? !getName().equals(student.getName()) : student.getName() != null) return false;
+        if (getSpeciality() != null ? !getSpeciality().equals(student.getSpeciality()) : student.getSpeciality() != null)
+            return false;
+        return getGroup() != null ? getGroup().equals(student.getGroup()) : student.getGroup() == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, speciality, group);
+        int result = getName() != null ? getName().hashCode() : 0;
+        result = 31 * result + (getSpeciality() != null ? getSpeciality().hashCode() : 0);
+        result = 31 * result + (getGroup() != null ? getGroup().hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
-        return name + ", " + speciality + ", " + group;
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", speciality='" + speciality + '\'' +
+                ", group=" + group.getGroupName() +
+                '}';
     }
 }

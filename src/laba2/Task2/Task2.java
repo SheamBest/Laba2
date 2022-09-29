@@ -11,14 +11,16 @@ public class Task2 {
     public static University formingUniversity() {
 
         final List<Group> groups = new ArrayList<>();
-        final String groupName1 = "KN-23";
         final String speciality1 = "Computer science";
+        final Group group1 = new Group();
+        group1.setGroupName("KN-23");
         final List<Student> students1 = Stream.of(
-                new Student("Afford Stuzhuk", speciality1, groupName1),
-                new Student("Kariman Aliev", speciality1, groupName1),
-                new Student("Akhor Rousvelt", speciality1, groupName1)
+                new Student("Afford Stuzhuk", speciality1, group1),
+                new Student("Kariman Aliev", speciality1, group1),
+                new Student("Akhor Rousvelt", speciality1, group1)
         ).collect(Collectors.toList());
-        groups.add(new Group(groupName1, students1, Stream.of(
+        group1.setStudents(students1);
+        group1.setSubjects(Stream.of(
                 new Subject("TIMS", new HashMap<Student, Integer>(){{
                     put(students1.get(0), 90);
                     put(students1.get(1), 56);
@@ -48,17 +50,19 @@ public class Task2 {
                         LocalDate.of(2022, 9, 9)
                 ).collect(Collectors.toList())
                 )
-        ).collect(Collectors.toList())
-        ));
+        ).collect(Collectors.toList()));
+        groups.add(group1);
 
-        final String groupName2 = "SA-41";
         final String speciality2 = "System Analysis";
+        final Group group2 = new Group();
+        group2.setGroupName("SA-41");
         final List<Student> students2 = Stream.of(
-                new Student("Leblanc Overpowered", speciality2, groupName2),
-                new Student("Shen Masta", speciality2, groupName2),
-                new Student("Jungle Diff", speciality2, groupName2)
+                new Student("Leblanc Overpowered", speciality2, group2),
+                new Student("Shen Masta", speciality2, group2),
+                new Student("Jungle Diff", speciality2, group2)
         ).collect(Collectors.toList());
-        groups.add(new Group(groupName2, students2, Stream.of(
+        group2.setStudents(students2);
+        group2.setSubjects(Stream.of(
                 new Subject("System Analysis", new HashMap<Student, Integer>(){{
                     put(students2.get(0), 99);
                     put(students2.get(1), 57);
@@ -87,8 +91,8 @@ public class Task2 {
                         LocalDate.of(2022, 9, 16),
                         LocalDate.of(2022, 9, 23)
                 ).collect(Collectors.toList()))
-        ).collect(Collectors.toList())
-        ));
+        ).collect(Collectors.toList()));
+        groups.add(group2);
         return new University("National University of Quebec", groups);
     }
 

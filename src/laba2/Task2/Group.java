@@ -31,6 +31,9 @@ public class Group {
         this.subjects = subjects;
     }
 
+    public Group() {
+    }
+
     public Group(final String groupName, final List<Student> students, final List<Subject> subjects) {
         this.groupName = groupName;
         this.students = students;
